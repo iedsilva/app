@@ -1,0 +1,32 @@
+<div ng-controller="PostListCtrl">
+	<div class="panel panel-default" ng-repeat="e in posts">
+		<div class="panel-body">
+			<span class="text-muted">{{e.Post.id}}</span>
+			<h1>
+				{{e.Post.title}}
+			</h1>
+			<p>
+				{{e.Post.body}}
+			</p>
+			<button class="btn btn-danger btn-sm pull-right" ng-click="delPost($index)">
+				<i class="fa fa-trash"></i>
+			</button>
+			<button class="btn btn-success btn-sm pull-right" ng-click="editPost($index)">
+				<i class="fa fa-pencil-square-o"></i>
+			</button>
+		</div>
+		<div class="panel-footer">
+			<small>
+				{{e.Post.created|date:'short'}}
+			</small>
+		</div>
+	</div>
+	<p>
+		<button type="button" class="btn btn-success" ng-click="addPost()">
+			<b class="icon-plus-sign"></b>Add Post
+		</button>
+	</p>
+	<p ng-show="msg" class="bg bg-success">
+		{{msg}}
+	</p>
+</div>
