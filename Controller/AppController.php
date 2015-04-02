@@ -12,6 +12,7 @@
 
 App::uses('Controller', 'Controller');
 
+
 /**
  * Application Controller
  *
@@ -22,4 +23,8 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $helper = array('Time');
+	public function beforeFilter() {
+		CakeNumber::addFormat('BRR', array('before' => 'R$', 'after' => false, 'thousands' => '', 'decimals' => ',', 'negative' => '-'));
+	}
 }

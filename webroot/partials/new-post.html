@@ -1,23 +1,23 @@
 <div ng-controller="NewPostCtrl">
     <form  class="form-horizontal">
-        <h1 class="page-header">New Post</h1>
+        <h1 class="page-header">Novo Curso</h1>
         <fieldset>    
             <div class="control-group">
-                <label class="control-label" for="title">Title</label>
+                <label class="control-label" for="title">Título</label>
                 <div class="controls">
                     <input id="title" type="text" class="form-control" required="true" ng-model="post.title"></input>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="body">Body</label>
+                <label class="control-label" for="body">Descrição</label>
                 <div class="controls">
-                    <textarea id="body" class="form-control" rows="10"
-                    ng-model="post.body" required="true"></textarea>
+                    <textarea id="body" class="form-control" rows="3" ng-model="post.body" required="true"></textarea>
                 </div>
             </div>
         </fieldset> 
+        <div class="br10"></div>
         <div class="form-actions">           
-            <button class="btn btn-primary" ng-click="savePost()">Add Post</button>
+            <button class="btn btn-primary" ng-click="savePost()">Adicionar Curso</button>
         </div>
     </form>
 </div>

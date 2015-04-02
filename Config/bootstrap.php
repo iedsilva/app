@@ -82,6 +82,8 @@ Configure::write('Dispatcher.filters', array(
 	'CacheDispatcher'
 ));
 
+
+
 /**
  * Configures default file logging options
  */
@@ -104,3 +106,8 @@ require APP . '/Vendor/autoload.php';
 // See https://github.com/composer/composer/commit/c80cb76b9b5082ecc3e5b53b1050f76bb27b127b
 spl_autoload_unregister(array('App', 'load'));
 spl_autoload_register(array('App', 'load'), true, true);
+
+
+date_default_timezone_set('America/Sao');
+
+Configure::write('debug', 2);
