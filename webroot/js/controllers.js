@@ -45,9 +45,7 @@ app.controller('NewPostCtrl', function($scope, $rootScope, $http, $location) {
     $scope.savePost = function() {
         var _data = {};
         _data.Post = $scope.post;
-        $http
-        .post(base_url + '/posts.json', _data)
-        .success(function(data, status, headers, config) {
+        $http.post(base_url + '/posts.json', _data).success(function(data, status, headers, config) {
             $location.path('/posts');
         }).error(function(data, status, headers, config) {
         });
@@ -76,6 +74,35 @@ app.controller('EditPostCtrl', function($scope, $rootScope, $http, $routeParams,
         .success(function(data, status, headers, config) {
             $location.path('/posts');
         }).error(function(data, status, headers, config) {
+        });
+    }
+});
+
+app.controller('FlorCtrl', function($scope, $rootScope, $http, $routeParams, $location) {
+
+});
+
+app.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
+    $scope.login = function() {
+        $scope.$emit('event:loginRequest', $scope.username, $scope.password);
+        //$location.path('/login');
+    };
+});
+
+app.controller('RegisterCtrl', function($scope, $rootScope, $http, $location) {
+
+    $scope.user = {};
+
+    $scope.register = function() {
+        console.log('call register');
+        var _data = {};
+        _data.User = $scope.user;
+        $http
+        .post(base_url + '/users/add.json', _data)
+        .success(function(data, status, headers, config) {
+          $location.path('/login');
+      })
+        .error(function(data, status, headers, config) {
         });
     }
 });

@@ -23,8 +23,19 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $helper = array('Time');
+	public $components = array('Auth', 'Session');
+
 	public function beforeFilter() {
-		CakeNumber::addFormat('BRR', array('before' => 'R$', 'after' => false, 'thousands' => '', 'decimals' => ',', 'negative' => '-'));
+		$this->Auth->authorize = array('Controller');
+		$this->Auth->authenticate = array(
+			'Basic'
+			);
+	}
+
+	public function isAuthorized($user) {
+		if (isset($user['role']) && ($user['role'] == 'admin')) {
+			return true;
+		}
+		return false;
 	}
 }

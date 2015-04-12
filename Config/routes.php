@@ -27,7 +27,8 @@ Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'
  * how to customize the loading of plugin routes.
  */
 CakePlugin::routes();
-Router::mapResources("posts");
+Router::mapResources("users");
+
 Router::parseExtensions();
 
 
